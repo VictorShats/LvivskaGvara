@@ -37,7 +37,7 @@
     var selectionChangeF = function()
     {
 		var price = calculatePrice();// [price, is_selected]
-		$("totalprice").innerHTML = "Total price = $ " + price[0].toFixed(2);
+		$("totalprice").innerHTML = "Total price =" + price[0].toFixed(2) + " грн."
 		$("buybutton").disabled = !price[1];
     }
 	

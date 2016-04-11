@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<title>Львівська Ґвара (Lviv subdialect of Ukrainian)</title>
+	<meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="lib/w3.css"></link>
+	<link rel="stylesheet" href="lib/w3-theme-teal.css"></link>
+	<body>
+			<header class="w3-container w3-card-4 w3-theme">
+				<h1 align="center">Львівська Ґвара</h1>
+				<p><center><button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-green w3-large">SIGN IN</button>&nbsp;or&nbsp;
+				<button onclick="document.getElementById('id02').style.display='block'" class="w3-btn w3-blue w3-large">CREATE ACCOUNT</button></center></p>
+			</header>
+			
+			<div class="w3-light-aqua w3-container w3-padding-64 w3-center">
+			<h1 class="w3-jumbo">Львівська ґвара (львівський говір) — </h1>
+			<p>міська говірка, що сформувалася у Львові в результаті змішання південно-західних говорів української мови та польської мови, зі значними домішками німецької та єврейської лексики за часів австрійського та польського панування.</p>
+			</div>
+
+			<div class="w3-topnav w3-large w3-center w3-theme">
+			  <a href="index.html">Home</a>
+			  <a href="index.html">Products</a>
+			  <a href="index.html">Deals</a>
+			  <a href="index.html">Stores</a>
+			  <a href="index.html">Contact</a>
+			  <a href="index.html">Account</a>
+			</div>
+		
+			<div id="id01" class="w3-modal">
+				<span onclick="document.getElementById('id01').style.display='none'" 
+				class="w3-closebtn w3-hover-red w3-container w3-padding-16 w3-display-topright w3-xxlarge">×</span>
+				<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+					<div class="w3-center"><br>
+						<img src="img_avatar4.png" alt="Avatar" style="width:40%" class="w3-circle w3-margin-top">
+					</div>
+				<div class="w3-container">
+				  <div class="w3-section">
+					<label class="w3-text-green"><b>EMAIL ADDRESS:</b></label>
+					<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username">
+
+					<label class="w3-text-green"><b>PASSWORD:</b></label>
+					<input class="w3-input w3-border" type="text" placeholder="Enter Password">
+					
+					<button class="w3-btn w3-btn-block w3-green w3-section">SIGN IN</button>
+					<p><input class="w3-check" type="checkbox" checked="checked"><label class="w3-validate">Remember me</label></p>
+					<p><input class="w3-check" type="checkbox" checked="checked"><label class="w3-validate">Stay logged in</label></p>
+				  </div>
+				</div>
+			<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+			  <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-btn w3-red">Cancel</button>
+			  <span class="w3-right w3-padding w3-hide-small"><label class="w3-text-green"><a href="#">Forgot your password?</a></label></span>
+			</div>
+				</div>
+			</div>
+
+			<div id="id02" class="w3-modal">
+				<span onclick="document.getElementById('id02').style.display='none'" 
+				class="w3-closebtn w3-hover-red w3-container w3-padding-16 w3-display-topright w3-xxlarge">×</span>
+				<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+	  				<div class="w3-center"><br>
+						<img src="img_avatar4.png" alt="Avatar" style="width:40%" class="w3-circle w3-margin-top">
+					</div>
+				<div class="w3-container">
+				  <div class="w3-section">
+					<label class="w3-text-blue"><b>FIRST NAME:</b></label>
+					<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter First Name">
+
+					<label class="w3-text-blue"><b>LAST NAME:</b></label>
+					<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Last Name">
+					
+					<label class="w3-text-blue"><b>EMAIL ADDRESS:</b></label>
+					<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Email address">
+					
+					<label class="w3-text-blue"><b>PASSWORD:</b></label>
+					<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Password">
+					
+					<button class="w3-btn w3-btn-block w3-blue w3-section">CREATE ACCOUNT</button>
+				  </div>
+				</div>
+			<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+			  <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-btn w3-red">Cancel</button>
+			</div>
+				</div>
+			</div>
+			
+			<div class="w3-container" id="itemcontainer">
+			</div>
+	
+		<footer class="w3-container w3-center w3-theme">
+		<br><h3><span id="totalprice">Total price =</span> <button onclick="document.getElementById('buybutton').style.display='block'" 
+																	id="buybutton" class="w3-btn w3-aqua w3-border">ADD TO CART</button> </h3> <br>
+		<h5>© 2016 | Victor Shatskykh</h5>
+		</footer>
+		
+        <div id="buydialog" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-8">
+				<header class="w3-container w3-teal">
+						<span onclick="document.getElementById('buydialog').style.display='none'"
+						class="w3-closebtn w3-hover-red w3-container w3-display-topright w3-xxlarge">×</span>				
+							<h2 align="center">TOTAL PRICE</h2>
+				</header>
+				<div class="w3-container">
+						<br><p align="center">Your order is worth $ <span id="dialogprice"></span></p><br>
+				</div>
+				<footer class="w3-container w3-teal">
+						<p align="center">Thank You for Your Order!</p>
+				</footer>
+            </div>
+        </div>
+		
+		<script src="index.js"></script>
+	</body>
+</html> 

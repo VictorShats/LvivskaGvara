@@ -47,6 +47,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/w3.css"></link>
 	<link rel="stylesheet" href="lib/w3-theme-teal.css"></link>
+	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <body>
 				<header class="w3-container w3-card-4 w3-theme">

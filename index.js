@@ -7,9 +7,43 @@
 	// jQuery-style notation
 	var $ = function (a) { return document.getElementById(a);}
 	
+	function errorF() { alert("Request Error. Check internet connection and try again"); }
+    function timeoutF() { alert("Request Timeout. Check internet connection and try again"); }
+    function logF(jsontest) { alert(jsontest); }
+    function appendLogF(jsontest) { $("log").appendChild(document.createTextNode(jsontest)); }
+    function setText(nodeName, text)
+    {
+        if ($(nodeName).childNodes.length > 0)
+        {
+            $(nodeName).replaceChild(document.createTextNode(text), $(nodeName).childNodes[0] );
+        }
+        else
+        {
+            $(nodeName).appendChild(document.createTextNode(text));
+        }
+    }
+    function hide(el) { $(el).style.display="none"; }
+    function show(el) { $(el).style.display="inline"; }
+ 
+    // Function to POST JSON queries
+    function postJSON(url, obj_to_send, responseF, errorF, timeoutF)
+    {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function()
+        {
+            if (xmlhttp.readyState != 4) return;
+            clearTimeout(timeout); // cancel timeout object
+            if (xmlhttp.status == 200) responseF( xmlhttp.responseText ); else errorF();
+        };
+        xmlhttp.open("POST", url, true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        var timeout = setTimeout( function () {xmlhttp.abort(); timeoutF();}, 10000); // 10 sec timeout
+        xmlhttp.send("json="+encodeURIComponent(JSON.stringify(obj_to_send)));
+    }
+ 
     var myitems = [];
  
-	var calculatePrice = function()
+	function calculatePrice()
 	{
 		 var price = 0;
 		 var atLeastOneIsSelected = false;
@@ -21,7 +55,7 @@
 		 return [price, atLeastOneIsSelected];
 	}
  
-    var selectionChangeF = function()
+    function selectionChangeF()
     {
 		var price = calculatePrice();// [price, is_selected]
 		$("totalprice").innerHTML = "Загальна ціна = " + price[0].toFixed(2) + " грн."
@@ -34,8 +68,126 @@
 		$('buydialog').style.display='block';
 	}
 
-	var updateContentF = function()
+    $("login").onclick = function()
     {
+        $('logindialog').style.display='block';
+    }
+ 
+    $("checkcookiebutton").onclick = function()
+    {
+        postJSON("checkcookie.php", "", logF, errorF, timeoutF);
+    }
+ 
+ 
+    $("showregisterdialog").onclick = function()
+    {
+        $('logindialog').style.display='none';
+        $('registerdialog').style.display='block';
+    }
+ 
+    $("reg_verpass").oninput = function()
+    {
+        $("reg_verpass").setCustomValidity($("reg_verpass").value === $("reg_pass").value ? "" : "Passwords do not match");
+    }
+ 
+    $("loginbutton").onclick = function()
+    {
+        var log_request = { log_email:$("log_email").value,
+                            log_pass:$("log_pass").value   };
+ 
+        postJSON("login.php", log_request,
+            function(js)
+            {
+                alert(js);
+                var resp = JSON.parse(js);
+                if (resp.error == 0)
+                {
+                    setText('registration', "Logged in as " + resp.user);
+                    show("signout");
+                    hide("login");
+                    hide("logindialog");
+                }
+                else
+                {
+                    alert("Login failed");
+                }
+            }, errorF, timeoutF);
+    }
+ 
+    // verify session
+    function verifysession()
+    {
+        postJSON("checksession.php", "",
+            function(js)
+            {
+                alert(js);
+                var resp = JSON.parse(js);
+                if (resp.error == 0)
+                {
+                    setText("registration", "Logged in as " + resp.user);
+                    show("signout");
+                    hide("login");
+                }
+                else
+                {
+                    setText("registration", "");
+                    hide("signout");
+                    show("login");
+                }
+            }
+            , errorF, timeoutF);
+    }
+ 
+    verifysession();
+ 
+ 
+    $("checksession").onclick = function()
+    {
+        verifysession()
+    }
+ 
+    $("signout").onclick = function()
+    {
+        postJSON("signout.php", "",
+        function(js)
+        {
+            alert(js);
+            var resp = JSON.parse(js);
+            if (resp.error == 0)
+            {
+                setText("registration", "");
+                hide("signout");
+                show("login");
+            }
+        }, errorF, timeoutF);
+    }
+ 
+    $("register").onclick = function()
+    {
+        var reg_request = { reg_first:$("reg_first").value,
+                            reg_last:$("reg_last").value,
+                            reg_email:$("reg_email").value,
+                            reg_pass:$("reg_pass").value   };
+ 
+        postJSON("register.php", reg_request,
+            function(js)
+            {
+                alert(js);
+                var resp = JSON.parse(js);
+                if (resp.error == 0)
+                {
+                    setText('registration', "Logged in as " + resp.user);
+                    show("signout");
+                    hide("login");
+                    hide("registerdialog");
+                }
+            }, errorF, timeoutF);
+    }
+ 
+    function updateContentF(jsontext)
+    {
+		if (jsontext) myitems = JSON.parse(jsontext);
+				
 		var itemcontainer = $("itemcontainer");
 		itemcontainer.innerHTML = '<hr>';
 
@@ -63,24 +215,7 @@
         selectionChangeF();
 	}
 	
-	    // send loanding request
-    var xmlhttp = new XMLHttpRequest();
-    var url = "index.php";
-    xmlhttp.onreadystatechange = function()
-    {
-        if (xmlhttp.readyState == 4)
-        {
-            if (xmlhttp.status == 200)
-            {
-                myitems = JSON.parse(xmlhttp.responseText);
-                updateContentF();
-            }
-            else
-            {
-                alert("Error loading shop content. xmlhttp.status = " + xmlhttp.status);
-            }
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send(); 
+    // loading shop items
+    postJSON("index.php", "", updateContentF, errorF, timeoutF);
+	
 })();

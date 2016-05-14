@@ -63,7 +63,6 @@
 
 			<div class="w3-topnav w3-large w3-center w3-theme">
 			  <a href="index.html">Головна</a>
-			  <a href="tabular.html">Табличне подання</a>
 			  <a href="store.html">Магазин</a>
 			  <a href="index.html">Контакти</a>
 			</div>

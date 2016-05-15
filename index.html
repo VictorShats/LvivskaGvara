@@ -8,21 +8,7 @@
 	<link rel="stylesheet" href="validation.css"></link>
 	<link rel="stylesheet" media="screen,projection" href="top/css/ui.totop.css" />
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-	<script type="text/javascript">
-			$(document).ready(function() {
-			   $("a.scroll").click(function () { 
-				 elementClick = $(this).attr("href");
-				 destination = $(elementClick).offset().top;
-				 if($.browser.safari){
-				   $('body').animate( { scrollTop: destination }, 1100 );
-				 }else{
-				   $('html').animate( { scrollTop: destination }, 1100 );
-				 }
-				 return false;
-			   });
-			 });
-	</script>
-			
+		
 	<body>
 			<header class="w3-container w3-card-4 w3-theme w3-top">
 				<table>
@@ -39,7 +25,7 @@
 				</td>
 				</tr>
 				</table>
-				</header>
+			</header>
 			
 			<div class="w3-light-aqua w3-container w3-center" style="margin-top:60px">
 			<h1 class="w3-jumbo">Львівська ґвара (львівський говір)</h1>
@@ -124,9 +110,9 @@
 			<div class="w3-center">
 			<nav id="menu">
 				<ul class="w3-pagination w3-border w3-round w3-theme">
-					<li><a class="w3-hover-red" href="#ex1" class="scroll">A</a></li>
-					<li><a class="w3-hover-pink" href="#ex2" class="scroll">Б</a></li>
-					<li><a class="w3-hover-purple" href="#ex3" class="scroll">В</a></li>
+					<li><a class="w3-hover-red" href="#ex1">A</a></li>
+					<li><a class="w3-hover-pink" href="#ex2">Б</a></li>
+					<li><a class="w3-hover-purple" href="#ex3">В</a></li>
 					<li><a class="w3-hover-deep-purple" href="#ex4">Г</a></li>
 					<li><a class="w3-hover-indigo" href="#ex5">Ґ</a></li>
 					<li><a class="w3-hover-blue" href="#ex6">Д</a></li>

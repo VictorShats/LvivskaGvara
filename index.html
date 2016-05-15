@@ -10,6 +10,23 @@
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 		
 	<body>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '274663549544907',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 			<header class="w3-container w3-card-4 w3-theme w3-top">
 				<table>
 				<td>
@@ -29,6 +46,12 @@
 			
 			<div class="w3-light-aqua w3-container w3-center" style="margin-top:60px">
 			<h1 class="w3-jumbo">Львівська ґвара (львівський говір)</h1>
+			<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 			<p>— міська говірка, що сформувалася у Львові в результаті змішання південно-західних говорів української мови та польської мови, зі значними домішками німецької та єврейської лексики за часів австрійського та польського панування.</p>
 			</div>
 

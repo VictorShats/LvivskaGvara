@@ -13,4 +13,3 @@ $outp = '[ {"name":"айнбрух", "desc":"вламання", "color":"blue"},
 		]';
 	
 echo($outp);
-?>

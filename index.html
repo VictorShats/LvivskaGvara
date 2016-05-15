@@ -8,7 +8,21 @@
 	<link rel="stylesheet" href="validation.css"></link>
 	<link rel="stylesheet" media="screen,projection" href="top/css/ui.totop.css" />
 	<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-	
+	<script type="text/javascript">
+			$(document).ready(function() {
+			   $("a.scroll").click(function () { 
+				 elementClick = $(this).attr("href");
+				 destination = $(elementClick).offset().top;
+				 if($.browser.safari){
+				   $('body').animate( { scrollTop: destination }, 1100 );
+				 }else{
+				   $('html').animate( { scrollTop: destination }, 1100 );
+				 }
+				 return false;
+			   });
+			 });
+	</script>
+			
 	<body>
 			<header class="w3-container w3-card-4 w3-theme w3-top">
 				<table>
@@ -106,17 +120,45 @@
 			</form>
 			
 			<div class="w3-container" id="itemcontainer" style="margin-bottom:40px">
-			<h1 align="center">Табличний варіант Львівської Ґвари</h1>
+			<br>
 			<div class="w3-center">
+			<nav id="menu">
 				<ul class="w3-pagination w3-border w3-round">
-					<li><a href="#">&laquo;</a></li>
-					<li><a class="w3-green" href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
+					<li><a class="w3-hover-red" href="#ex1" class="scroll">A</a></li>
+					<li><a class="w3-hover-pink" href="#ex2" class="scroll">Б</a></li>
+					<li><a class="w3-hover-purple" href="#ex3" class="scroll">В</a></li>
+					<li><a class="w3-hover-deep-purple" href="#ex4">Г</a></li>
+					<li><a class="w3-hover-indigo" href="#ex5">Ґ</a></li>
+					<li><a class="w3-hover-blue" href="#ex6">Д</a></li>
+					<li><a class="w3-hover-light-blue" href="#ex7">Е</a></li>
+					<li><a class="w3-hover-cyan" href="#ex8">Є</a></li>
+					<li><a class="w3-hover-teal" href="#ex9">Ж</a></li>
+					<li><a class="w3-hover-green" href="#ex10">З</a></li>
+					<li><a class="w3-hover-light-green" href="#ex11">И</a></li>
+					<li><a class="w3-hover-lime" href="#ex12">і</a></li>
+					<li><a class="w3-hover-khaki" href="#ex13">Ї</a></li>
+					<li><a class="w3-hover-yellow" href="#ex14">Й</a></li>
+					<li><a class="w3-hover-amber" href="#ex15">К</a></li>
+					<li><a class="w3-hover-orange" href="#ex16">Л</a></li>
+					<li><a class="w3-hover-deep-orange" href="#ex17">М</a></li>
+					<li><a class="w3-hover-orange"href="#ex18">Н</a></li>
+					<li><a class="w3-hover-amber" href="#ex19">О</a></li>
+					<li><a class="w3-hover-yellow" href="#ex20">П</a></li>
+					<li><a class="w3-hover-khaki" href="#ex21">Р</a></li>
+					<li><a class="w3-hover-lime" href="#ex22">С</a></li>
+					<li><a class="w3-hover-light-green" href="#ex23">Т</a></li>
+					<li><a class="w3-hover-green" href="#ex24">У</a></li>
+					<li><a class="w3-hover-teal" href="#ex25">Ф</a></li>
+					<li><a class="w3-hover-cyan" href="#ex26">Х</a></li>
+					<li><a class="w3-hover-light-blue" href="#ex27">Ц</a></li>
+					<li><a class="w3-hover-blue" href="#ex28">Ч</a></li>
+					<li><a class="w3-hover-indigo" href="#ex29">Ш</a></li>
+					<li><a class="w3-hover-deep-purple" href="#ex30">Щ</a></li>
+					<li><a class="w3-hover-purple" href="#ex31">Ю</a></li>
+					<li><a class="w3-hover-red" href="#ex32">Я</a></li>
 				</ul>
+			</nav>
+			<span id="ex1"></span>
 			</div>
 			<table class="w3-table w3-bordered w3-striped  w3-border w3-card-4">
 			<br>
@@ -126,12 +168,12 @@
 				  <th>Українська</th>
 				</tr>
 				</thead>
-				  
-				  <tr class="w3-orange w3-hover-deep-orange"> 
+				
+				  <tr class="w3-orange w3-hover-deep-orange" >
 					<td>А</td>
 					<td></td>
 				  </tr>
-				 
+
 				 <tr class="w3-hover-blue"> 
 					<td>аґрафка</td>
 					<td>- 1. шпилька,  2. подруга</td>
@@ -166,7 +208,9 @@
 				  </tr>
  				  <tr class="w3-hover-blue"> 
 					<td>андрути</td>
-					<td>- вафлі</td>
+					<td>- вафлі
+					<span id="ex2"></span>
+					</td>
 				  </tr>
  				  <tr class="w3-hover-blue"> 
 					<td>анцуґ</td>
@@ -176,12 +220,12 @@
 					<td>аус</td>
 					<td>- кінець</td>
 				  </tr>
-				  
-				  <tr class="w3-orange w3-hover-deep-orange">  
-					<td>Б</td>
+
+				  <tr class="w3-orange w3-hover-deep-orange"> 
+					<td>Б				  <span id="ex2"></span></td>
 					<td></td>
 				  </tr>
-				  
+
   				  <tr class="w3-hover-blue"> 
 					<td>бадиль</td>
 					<td>- бур’ян</td>
@@ -400,7 +444,9 @@
 				  </tr>
 				  <tr class="w3-hover-blue"> 
 					<td>бусько</td>
-					<td>- лелека</td>
+					<td>- лелека
+					<span id="ex3"></span>
+					</td>
 				  </tr>
 				  <tr class="w3-hover-blue"> 
 					<td>бухт</td>
@@ -410,7 +456,7 @@
 					<td>бюро</td>
 					<td>- письмовий стіл</td>
 				  </tr>
-				  
+
 				  <tr class="w3-orange w3-hover-deep-orange">  
 					<td>В</td>
 					<td></td>
@@ -478,7 +524,7 @@
 					  <p>- виточка 
 					</td>
 				  </tr>
-				  
+
 				  <tr class="w3-orange w3-hover-deep-orange">  
 					<td>Г</td>
 					<td></td>
@@ -1257,8 +1303,8 @@
 				  </tr>
 				  
 				  <tr> 
-					<td > 
-					  <p>радирка 
+					<td >
+					  <p>радирка
 					  <p>райдати 
 					  <p>рапатий 
 					  <p>рата 
@@ -1768,7 +1814,8 @@
 			$().UItoTop({ easingType: 'easeOutQuart' });
 			 
 			});
-			</script>
+			</script
+
 		<script src="index.js"></script>
 	</body>
 </html>

@@ -146,7 +146,7 @@
         </div>
 
 		<footer class="w3-container w3-center w3-theme">
-		<h5>© 2016 | Віктор Шатських</h5>
+		<h5>© 2017 | Віктор Шатських</h5>
 		</footer>
     </body>
 </html>
